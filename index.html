@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSH Portfolio</title>
+    <link rel="stylesheet" href="css/p.css">
+    <link rel="stylesheet" href="lib/dist/fullpage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="lib/dist/fullpage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    
+    <script>
+        window.onload = () => {
+            var myFullpage = new fullpage('#fullpage', {
+                sectionsColor: ['#F4F3EE', '#F4F3EE', '#F4F3EE', '#F4F3EE', '#463F3A'],
+                anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage','5thPage'], /* 한글안됨 */
+                navigation: false,
+                navigationTooltips: ['MAIN', 'ABOUT', 'WEB/APP', 'DESIGN', 'CONTACT'],
+                showActiveTooltip: false,
+                menu: '#menu',
+                responsiveWidth: 900,
+                afterResponsive: function (isResponsive) {
+                }
+            });
+        }
+
+
+        $(function(){
+            $('.nav1 .gnb1 li').mouseenter(function(){
+                /* console.log($(this).position().left); */
+
+                $('.nav1 .menu_bar').stop().animate({
+                    left : $(this).position().left
+                });
+            });
+
+            let Btn = $('.btn_m');
+            let Btn_img = $('.btn_m img');
+            let nav = $('.nav2');
+
+            Btn.click(function(){
+                if(Btn_img.attr('src') === 'img/Menu.png'){
+                    Btn_img.attr('src', 'img/Menu_c.png');
+
+                    nav.animate({
+                        'left' : '50%'
+                    }, 1000)
+                }else{
+                    Btn_img.attr('src', 'img/Menu.png');
+                    nav.animate({
+                        'left' : '100%'
+                    }, 1000)
+                }
+            });
+            
+            let menu = document.querySelectorAll('.gnb li');
+            let item_wrap = document.querySelectorAll('.mySwiper');
+            i = menu.length;
+                for(let i = 0; i < menu.length; i++){
+                    menu[i].addEventListener('click', () => {
+                        menu.forEach(menuItem => {
+                            menuItem.classList.remove('active');
+                        });
+                        menu[i].classList.add('active');
+                        
+                        
+                        item_wrap.forEach(wrap => {
+                            wrap.classList.remove('active');
+                        });
+                        item_wrap[i].classList.add('active');
+                        
+                    });
+                };
+
+                /* .mySwiper 두개 있어서 active 붙이기 */
+            var swiper = new Swiper(".mySwiper.active", {
+                spaceBetween: 30,
+                speed: 1300,
+                slidesPerView: "4",
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            });
+
+            $('.stop').click(function(){
+                swiper.autoplay.stop()
+                $(this).hide();
+                $('.play').show();
+            })
+            $('.play').click(function(){
+                swiper.autoplay.start()
+                $(this).hide();
+                $('.stop').show();
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="inner">
+            <h1 class="logo"><a href="/">KSH</a></h1>
+            <nav class="nav1">
+                <ul class="gnb1">
+                    <li><a href="#firstPage">MAIN</a></li>
+                    <li><a href="#secondPage">ABOUT</a></li>
+                    <li><a href="#3rdPage">WEP/APP</a></li>
+                    <li><a href="#4thPage">DESIGN</a></li>
+                    <li><a href="#5thPage">CONTACT</a></li>
+                </ul><!-- gnb1 -->
+                <div class="menu_bar">
+                    <span>메뉴바</span>
+                </div><!-- menu_bar -->
+            </nav><!-- nav1 -->
+            <button type="button" class="btn_m">
+                <img src="img/Menu.png" alt="메뉴바">
+            </button>
+            <nav class="nav2">
+                <ul class="gnb2">
+                    <li><a href="#firstPage">MAIN</a></li>
+                    <li><a href="#secondPage">ABOUT</a></li>
+                    <li><a href="#3rdPage">WEP/APP</a></li>
+                    <li><a href="#4thPage">DESIGN</a></li>
+                    <li><a href="#5thPage">CONTACT</a></li>
+                </ul><!-- gnb2 -->
+            </nav><!-- nav2 -->
+        </div><!-- inner -->
+    </header><!-- header -->
+    <div id="fullpage">
+        <div class="section" id="main_visual">
+            <div class="main_p">
+                <img src="img/main.png" alt="직접그림">
+                <h1>PORTFOLIO</h1>
+            </div>
+            
+
+            <div class="Scroll">
+                <img src="img/Computer Mouse.png" alt="스크롤">
+                <p>Scroll Down</p>
+            </div><!-- Scroll -->
+        </div><!-- main_visual -->
+
+
+        <section class="section fp-auto-height-responsive" id="section1">
+            <div class="title">
+                <h1>ABOUT</h1>
+            </div><!-- title -->
+
+            <div class="_Profil">
+                <div class="_Profil_N1"></div><!-- N1 증명사진-->
+                <div class="_Profil_N2">
+                    <ul>
+                        <li><p>Name</p><span>김성희</span></li>
+                        <li><p>Age</p><span>2000.04.24</span></li>
+                        <li><p>Adress</p><span>부산광역시 사상구 괘법동</span></li>
+                        <li><p>Phone</p><span>010.3358.7284</span></li>
+                        <li><p>Email</p><span>rlatjdgml424@naver.com</span></li>
+                    </ul>
+                </div><!-- _N2 -->
+                <div class="_Profil_R">
+                    <div class="_Profil_N3">
+                        <p>Certificate</p>
+                        <ul>
+                            <li>2024.07 정보기술자격(ITQ) OA마스터</li>
+                            <li>2023.06 정보처리기사 (필기합격)</li>
+                            <li>2021.01 2종보통운전면허</li>
+                            <li>2020.10 컴퓨터활용능력1급</li>
+                            <li>2020.10 워드프로세서 단일등급</li>
+                        </ul>
+                    </div><!-- _N3 -->
+                    <div class="_Profil_N4">
+                        <p>Skill</p>
+                        <div class="_up">
+                            <img src="img/Visual Studio Code 2019.png" alt="비주얼스튜디오">
+                            <img src="img/CSS3.png" alt="css">
+                            <img src="img/Html 5.png" alt="html">
+                            <img src="img/Git.png" alt="깃">
+                        </div>
+                        <div class="_down">
+                            <img src="img/Figma.png" alt="피그마">
+                            <img src="img/Adobe Photoshop.png" alt="포토샵">
+                            <img src="img/Adobe Illustrator.png" alt="일러스트">
+                            <img src="img/JavaScript.png" alt="자바스크립트">
+                        </div>
+                    </div><!-- _N4 -->
+                </div><!-- R -->
+            </div><!-- _Profil -->
+        </section><!-- section1 -->
+
+        <section class="section" id="section2">
+            <div class="title">
+                <h1>WEP/APP</h1>
+            </div><!-- title -->
+            
+            <div class="_Work_N1">
+                <div class="_Work_N1__L" id="Lotte">
+                    <h3>롯데시네마</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>반응형, 페이지 리뉴얼, 서브페이지 연동</span></li>
+                        <li><p>프로그램</p><span>Visual Studio Code, Figma</span></li>
+                        <li><p>사용언어</p><span>Html, CSS, JavaScript(Jquery)</span></li>
+                        <li><p>참여도</p><span>기획, 디자인, 퍼블리싱 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://bbbb404.github.io/cinema/" target="_blank"><p>웹사이트</p></a>
+                        <a href="https://www.figma.com/proto/7rz3YCM4dQFzP5gXm1qoAM/%EB%A1%AF%EB%8D%B0%EC%8B%9C%EB%84%A4%EB%A7%88?t=jnSiYrWZuxXppUdd-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-2" target="_blank"><p>피그마</p></a>
+                        <a href="https://www.figma.com/proto/djvc7332xIHZP3OkH7WRBA/%EB%A1%AF%EB%8D%B0%EC%8B%9C%EB%84%A4%EB%A7%88-%EC%84%9C%EB%B8%8C%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=4-5&p=f&t=At9dTEK6Mlv1E6nJ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" target="_blank"><p>서브페이지</p></a>
+                        <a href="pdf/cinema.pdf" target="_blank"><p>프로세스</p></a>
+                    </div><!-- button -->
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R">
+                    <img src="img/목업_롯데시네마.png" alt="롯데시네마 목업">
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L">
+                    <img src="img/목업_나이키.png" alt="나이키 목업">
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R" id="NIKE">
+                    <h3>NIKE / 나이키</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>반응형, 페이지 리뉴얼</span></li>
+                        <li><p>프로그램</p><span>Visual Studio Code, Photoshop</span></li>
+                        <li><p>사용언어</p><span>Html, CSS, JavaScript(Jquery)</span></li>
+                        <li><p>참여도</p><span>기획, 디자인, 퍼블리싱 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://bbbb404.github.io/nike/" target="_blank"><p>웹사이트</p></a>
+                        <a href="img/나이키_메인.jpg" target="_blank"><p>디자인</p></a>
+                        <a href="pdf/나이키.pdf" target="_blank"><p>프로세스</p></a>
+                    </div><!-- button -->
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L" id="PASCU">
+                    <h3>PASCUCCI / 파스쿠찌</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>적응형, 페이지 리뉴얼</span></li>
+                        <li><p>프로그램</p><span>Visual Studio Code, Photoshop</span></li>
+                        <li><p>사용언어</p><span>Html, CSS</span></li>
+                        <li><p>참여도</p><span>기획, 디자인, 퍼블리싱 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://bbbb404.github.io/pascucci/" target="_blank"><p>웹사이트</p></a>
+                        <a href="img/파스쿠찌_메인.jpg" target="_blank"><p>디자인</p></a>
+                        <a href="pdf/파스쿠찌.pdf" target="_blank"><p>프로세스</p></a>
+                    </div><!-- button -->
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R">
+                    <img src="img/목업_파스쿠찌.png" alt="파스쿠찌 목업">
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L">
+                    <img src="img/목업_프랭크버거.png" alt="프랭크버거 목업">
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R" id="Buger">
+                    <h3>프랭크 버거</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>모바일 페이지 리뉴얼</span></li>
+                        <li><p>프로그램</p><span>Figma</span></li>
+                        <li><p>참여도</p><span>기획, 디자인 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://www.figma.com/proto/XxX355e8afvTQTXqbgy40f/%ED%94%84%EB%9E%AD%ED%81%AC%EB%B2%84%EA%B1%B0%EB%AA%A8%EB%B0%94%EC%9D%BC?node-id=2-84&p=f&t=vQ2Smx7JfGjmQYfm-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A84" target="_blank"><p>피그마</p></a>
+                        <a href="pdf/프랭크버거.pdf" target="_blank"><p>프로세스</p></a>
+                    </div><!-- button -->
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L" id="Table">
+                    <h3>테이블링</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>모바일 페이지 모작</span></li>
+                        <li><p>프로그램</p><span>Figma</span></li>
+                        <li><p>참여도</p><span>디자인 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://www.figma.com/proto/g2Xc8iV3hkJq1a37JINLm1/%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A7%81?t=9GzUB36Nt3SKfRhd-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=2-173&starting-point-node-id=2%3A173" target="_blank"><p>피그마</p></a>
+                    </div><!-- button -->
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R">
+                    <img src="img/목업_웨이팅.png" alt="테이블링 목업">
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L">
+                    <img src="img/목업_르주르.png" alt="르주르 목업">
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R" id="Shop">
+                    <h3>르주르</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>웹페이지 모작, 반응형</span></li>
+                        <li><p>프로그램</p><span>Visual Studio Code</span></li>
+                        <li><p>사용언어</p><span>Html, CSS, JavaScript(Jquery)</span></li>
+                        <li><p>참여도</p><span>퍼블리싱 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://bbbb404.github.io/le_j/" target="_blank"><p>웹사이트</p></a>
+                    </div><!-- button -->
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L" id="Busan">
+                    <h3>VISIT BUSAN</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>웹 페이지 모작</span></li>
+                        <li><p>프로그램</p><span>Visual Studio Code</span></li>
+                        <li><p>사용언어</p><span>Html, CSS, JavaScript</span></li>
+                        <li><p>참여도</p><span>퍼블리싱 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://bbbb404.github.io/visit/" target="_blank"><p>웹사이트</p></a>
+                    </div><!-- button -->
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R">
+                    <img src="img/목업_부산.png" alt="비짓부산 목업">
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+
+            <div class="_Work_N1">
+                <div class="_Work_N1__L">
+                    <img src="img/목업_갤러리.png" alt="백상 갤러리 목업">
+                </div><!-- __L -->
+
+                <div class="_Work_N1__R" id="Pic">
+                    <h3>백상 갤러리 샵</h3>
+                    <ul>
+                        <li><p>프로젝트</p><span>반응형, 웹페이지 모작</span></li>
+                        <li><p>프로그램</p><span>Visual Studio Code</span></li>
+                        <li><p>사용언어</p><span>Html, CSS</span></li>
+                        <li><p>참여도</p><span>퍼블리싱 100%</span></li>
+                    </ul>
+                    <div class="_Work_N1__B">
+                        <a href="https://bbbb404.github.io/GALLERYSHOP/" target="_blank"><p>웹사이트</p></a>
+                    </div><!-- button -->
+                </div><!-- __R -->
+            </div><!-- _Work_N1 -->
+        </section><!-- section2 -->
+
+        <section class="section" id="section3">
+            <div class="title">
+                <h1>DESIGN</h1>
+            </div><!-- title -->
+
+            <nav class="nav">
+                <ul class="gnb">
+                    <li class="active">Photoshop</li>
+                    <li>Illatstrator</li>
+                </ul>
+            </nav><!-- nav -->
+                
+            <div class="swiper mySwiper active">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/포토샵_레벨.png" alt="레벨">
+                        <div class="text">
+                            <p>레벨</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/포토샵_포토갤러리.png" alt="포토샵_포토갤러리">
+                        <div class="text">
+                            <p>포토갤러리</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/포토샵_패치브러시.png" alt="패치브러시">
+                        <div class="text">
+                            <p>패치브러시</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/포토샵_커브.jpg" alt="커브">
+                        <div class="text">
+                            <p>커브</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/포토샵_포토필터.jpg" alt="포토필터">
+                        <div class="text">
+                            <p>포토필터</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/포토샵_누끼.png" alt="누끼 및 작업물">
+                        <div class="text">
+                            <p>펜툴 사용 및 작업물</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="control">
+                    <button class="stop"><img src="img/Stop.png" alt="멈춤"></button>
+                    <button class="play"><img src="img/Play.png" alt="재생"></button>
+                </div><!-- control --> 
+            </div>
+            
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/일러스트.png" alt="일러스트">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </section><!-- secection3 -->
+
+        <footer class="section fp-auto-height" id="footer">
+            <div class="footer_W">
+                <div class="footer__left">
+                    <p>Thank you <br>For Watcing!</p>
+                    <img src="img/footer.png" alt="푸터이미지">
+                </div><!-- left -->
+                <div class="footer__right">
+                    <div class="title">
+                        <h1>CONTACT</h1>
+                    </div><!-- title -->
+                    <div class="footer__wrap">
+                        <div class="footer__wrap__text">
+                            <div class="phone">
+                                <img src="img/Phone.png" alt="폰번호">
+                                <p>010.3358.7284</p>
+                            </div><!-- phone -->
+                            <div class="email">
+                                <img src="img/Email.png" alt="이메일">
+                                <p>rlatjdgml424@naver.com</p><!-- 김성희 영어로 그대로 입력 -->
+                            </div><!--email -->
+                        </div><!-- text -->
+                        <div class="footer__wrap__QR">
+                            <img src="img/카톡QR.png" alt="카톡프로필다운">
+                            <span>카카오톡 QR</span>
+                            <a href="https://github.com/bbbb404" target="_blank"><p>깃허브</p></a>
+                        </div><!-- QR -->
+                    </div><!--footer wrap -->
+                    <div class="footer__wrap2">
+                        <p>※ 본 사이트는 상업적 목적이 아닌 개인포트폴리오 사이트로 제작되었습니다.</p>
+                        <p>일부 내용 및 폰트, 이미지 등은 그 출처가 따로 있음을 밝힙니다.</p>
+                        <p>Copyrightⓒ2025.SungHee Kim.All rightsreserved.</p>
+                    </div><!-- wrap2 -->
+                </div><!-- right -->
+            </div><!-- footer_wrap -->
+        </footer><!-- footer -->
+    </div><!--fullpage -->
+
+
+</body>
+</html>
