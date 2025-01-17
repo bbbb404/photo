@@ -1,0 +1,100 @@
+@charset "utft-8";
+
+@font-face {
+    font-family: 'retro';
+    src: url('font/RetroSans/establishRetrosansOTF.eot');
+    src: url('font/RetroSans/establishRetrosansOTF.eot?#iefix') format('embedded-opentype'),
+        url('font/RetroSans/establishRetrosansOTF.woff2') format('woff2'),
+        url('font/RetroSans/establishRetrosansOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'pre_l';
+    src: url('font/pretendard/Pretendard-Light.eot');
+    src: url('font/pretendard/Pretendard-Light.eot?#iefix') format('embedded-opentype'),
+        url('font/pretendard/Pretendard-Light.woff2') format('woff2'),
+        url('font/pretendard/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'pre_r';
+    src: url('font/pretendard/Pretendard-Regular.eot');
+    src: url('font/pretendard/Pretendard-Regular.eot?#iefix') format('embedded-opentype'),
+        url('font/pretendard/Pretendard-Regular.woff2') format('woff2'),
+        url('font/pretendard/Pretendard-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'pre_m';
+    src: url('font/pretendard/Pretendard-Medium.eot');
+    src: url('font/pretendard/Pretendard-Medium.eot?#iefix') format('embedded-opentype'),
+        url('font/pretendard/Pretendard-Medium.woff2') format('woff2'),
+        url('font/pretendard/Pretendard-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'pre_b';
+    src: url('font/pretendard/Pretendard-Bold.eot');
+    src: url('font/pretendard/Pretendard-Bold.eot?#iefix') format('embedded-opentype'),
+        url('font/pretendard/Pretendard-Bold.woff2') format('woff2'),
+        url('font/pretendard/Pretendard-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'pre_ex';
+    src: url('font/pretendard/Pretendard-ExtraBold.eot');
+    src: url('font/pretendard/Pretendard-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('font/pretendard/Pretendard-ExtraBold.woff2') format('woff2'),
+        url('font/pretendard/Pretendard-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    background-color: #F4F3EE;
+}
+body{
+    font-size: 18px;
+    color: #463F3A;
+    -ms-overflow-style: none;
+    /* color: #333 */
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.title h1{
+    font-family: 'retro';
+    font-size: 64px;
+}
